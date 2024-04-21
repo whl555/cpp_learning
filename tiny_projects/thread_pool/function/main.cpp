@@ -17,6 +17,7 @@ struct Function<Ret(Args...)>
         virtual Base *clone() = 0;
         virtual Ret operator()(Args &&...args) = 0;
     };
+
     template <typename T>
     struct Data : Base
     {
@@ -25,9 +26,11 @@ struct Function<Ret(Args...)>
         virtual Base *clone() { return new Data<T>(func); }
         virtual Ret operator()(Args &&...args)
         {
-            return func(std::forward<Args>(args)...);
-        }
+            // 完美转发
+            return func(forward<Args>(args)...);
+        };
     };
+
     Base *ptr;
     Function() : ptr{nullptr} {}
     template <typename T>
@@ -66,6 +69,7 @@ struct Function<Ret(Args...)>
             delete ptr;
     }
 };
+
 void foo(int n, Function<void()> &call_back)
 {
     int sum = 0;
