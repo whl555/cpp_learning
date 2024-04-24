@@ -81,3 +81,8 @@ glog 的 cmake 命令
 ### 添加第三方库之 FetchContent
 声明(仓库地址、仓库版本号) + 触发拉取 + 自动配置
 
+
+## others
+解决“cmake: /usr/local/lib/libcurl.so.4: no version information available (required by cmake)”
+https://blog.csdn.net/caiexu/article/details/81842888
+

@@ -71,3 +71,6 @@ lambda: c++语法糖
 #### 五、RAII
 
 #### 六、多线程、线程安全
+
+#### 七、cmake改造版本
+./thread-pool
